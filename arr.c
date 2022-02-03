@@ -6,7 +6,7 @@ int main()
 	int a;
 	for (int i = 0; i < 6; ++i)
 	{
-		for(int a = 0; a < 6; ++a)
+	for(int a = 0; a < 6; ++a)
 	{   
 		if(arr[a+1] < arr[a] && a+1 != 6)
 		{
@@ -16,9 +16,6 @@ int main()
 		}	
 	}
 	}
-	
-	
-	
 	for (int c = 0; c < 6; ++c)
 	{
 		printf("\n%i", arr[c]);
