@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int search(int* nums, int ns, int target){
+	int x = 0;
+	x = ns/2;
+	int count = 0;
+	int result = 0;
+	if(target > nums[x])
+	{
+		for(int i = x;i < ns;i++)
+		{
+			if(nums[i] == target)
+			{
+				result = i;
+				count = 1;
+				break;
+			} 
+		}
+	}else if(target < nums[x] || target == nums[x]) {
+		for(int j = x;j >= 0;j--){
+			if(nums[j] == target)
+			{
+				result = j;
+				count = 1;
+				break;
+			} 
+		}
+	} 
+
+	if(count == 0){
+		result = -1;
+	}
+	return result;
+}
