@@ -5,7 +5,7 @@ int fact2(int n)
 	if(n == 1){
 		return 1;
 	}
-	while(n != 1){
+	if(n != 1){
 	return n*fact2(n-1);
 	}
 }
