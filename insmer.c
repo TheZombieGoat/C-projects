@@ -10,7 +10,7 @@ int main()
 {
     int narr = 0;
     int input = 0;
-	printf("\nType in number of elements: ");
+    printf("\nType in number of elements: ");
     scanf("%d", &narr);
     int *p = (int*)malloc(sizeof(int[narr]));
 
@@ -29,13 +29,13 @@ int main()
         printf("\nUsed Altered.\n");
     }
 
-	for (int i = 0; i < narr; i++)
-	{
-		printf("%d\n", p[i]);
-	}
+    for (int i = 0; i < narr; i++)
+    {
+	printf("%d\n", p[i]);
+    }
 
     free(p);
-	return 0;
+    return 0;
 }
 
 
@@ -70,12 +70,11 @@ void merge(int *arr, int l, int m, int r) //merge sort
     i = 0; 
     j = 0; 
     k = l; 
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
+    while (i < n1 && j < n2){
+        if (L[i] <= R[j]){
             arr[k] = L[i];
             i++;
-        }
-        else {
+        } else{
             arr[k] = R[j];
             j++;
         }
@@ -112,7 +111,7 @@ void mergeSortO(int *arr, int l, int r)  //merge sort original
             mergeSortO(arr, l, m);
             mergeSortO(arr, m + 1, r);
             merge(arr, l, m, r);
-        }
+    }
 }
 
 
