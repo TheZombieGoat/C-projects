@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int assist(int x, int y)
+int assist(int x, int y) //checks for invalid inputs and returns greater value between x & y
 {
 	if(x < 0 || y < 0){
 		printf("Invalid Input\n");
