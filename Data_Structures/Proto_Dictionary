@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct dict{
+	char *key;
+	int val;
+	struct dict *prev;
+	struct dict *next;
+}dict;
+
+dict* dictCreate(char *k, int v){
+	dict *d = (dict*)malloc(sizeof(dict));
+	d->key = k;
+	d->val = v;
+	d->next = NULL;
+	d->prev = NULL;
+	return d;
+}
+
+void addict(dict *head, char *k, int val){
+	dict *a = head;
+	while(a->next != NULL){
+		a = a->next;
+	}
+	a->next = (dict*)malloc(sizeof(dict));
+	a->next->val = val;
+	a->next->key = k;
+	a->next->prev = a;
+	a->next->next = NULL;
+	printf("Added value %i to key: %s\n",val,k);
+	return;
+}
+
+int findVal(dict *head, char *k){
+	dict *p = head;
+	while(p->next != NULL){
+		if(strcmp(k,p->key) == 0)
+			return p->val;
+		p = p->next;
+	}
+	printf("Key does not exist\n");
+	return -1;
+}
+
+void printDict(dict *head){
+	dict *p = head;
+	while(p != NULL){
+		printf("Key: %s   Value %i \n",p->key,p->val);
+		p = p->next;
+	}
+}
+
+void delDict(dict *head);
+
+int main(){
+	dict *MyDict = dictCreate("Penta",5);
+	addict(MyDict,"Hexa",6);
+	addict(MyDict,"Septa",7);
+	addict(MyDict,"Octa",8);
+	printDict(MyDict);
+	free(MyDict);
+	return 0;
+}
+
